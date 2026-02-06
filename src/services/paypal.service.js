@@ -1,6 +1,6 @@
 const paypal = require("@paypal/checkout-server-sdk");
 
-const environment = new paypal.core.SandboxEnvironment(
+const environment = new paypal.core.LiveEnvironment(
   process.env.PAYPAL_CLIENT_ID,
   process.env.PAYPAL_CLIENT_SECRET,
 );
@@ -24,8 +24,8 @@ const createPayPalOrder = async () => {
       brand_name: "LoopIN",
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
-      return_url: "http://localhost:3000/paypal-success",
-      cancel_url: "http://localhost:3000/paypal-cancel",
+      return_url: "https://loopin-psi.vercel.app/paypal-success",
+      cancel_url: "https://loopin-psi.vercel.app/paypal-cancel",
     },
   });
 

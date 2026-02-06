@@ -50,7 +50,7 @@ const captureOrder = async (req, res) => {
 
     // 🛑 Validate payment details
     if (
-      Number(payment.amount.value) !== 5 ||
+      payment.amount.value !== EXPECTED_AMOUNT ||
       payment.amount.currency_code !== EXPECTED_CURRENCY
     ) {
       return res.status(400).json({ error: "Invalid payment amount" });
